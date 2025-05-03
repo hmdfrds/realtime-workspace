@@ -39,3 +39,4 @@ Thumbs.db
 # Prisma
 */prisma/migrations/*/*.sql 
 */prisma/dev.db* 
+generated/prisma/
