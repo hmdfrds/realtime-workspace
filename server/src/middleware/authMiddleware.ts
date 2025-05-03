@@ -22,7 +22,7 @@ export function authenticateToken(
     next();
   } catch (error) {
     console.error("Authentication Error:", error);
-    return res
+    res
       .status(403)
       .json({ message: "Access denied. Invalid or expired token" });
   }
