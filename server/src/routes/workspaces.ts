@@ -1,9 +1,9 @@
 import { Router, Request, Response } from "express";
 import prisma from "../lib/prisma";
 
-const workspaceRouter = Router();
+const workspaceRoutes = Router();
 
-workspaceRouter.post("/", async (req: Request, res: Response) => {
+workspaceRoutes.post("/", async (req: Request, res: Response) => {
   const { name } = req.body;
   const userId = req.user?.id;
 
@@ -41,7 +41,7 @@ workspaceRouter.post("/", async (req: Request, res: Response) => {
   }
 });
 
-workspaceRouter.get("/", async (req: Request, res: Response) => {
+workspaceRoutes.get("/", async (req: Request, res: Response) => {
   const userId = req.user?.id;
 
   if (!userId) {
@@ -70,7 +70,7 @@ workspaceRouter.get("/", async (req: Request, res: Response) => {
   }
 });
 
-workspaceRouter.get("/:workspaceId", async (req: Request, res: Response) => {
+workspaceRoutes.get("/:workspaceId", async (req: Request, res: Response) => {
   const userId = req.user?.id;
   const { workspaceId } = req.params;
 
@@ -141,3 +141,5 @@ workspaceRouter.get("/:workspaceId", async (req: Request, res: Response) => {
     res.status(500).json({ message: "Failed to fetch workspace details." });
   }
 });
+
+export default workspaceRoutes;
