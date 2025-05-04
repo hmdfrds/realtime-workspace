@@ -1,4 +1,4 @@
-import express, { Request, Response, Router } from "express";
+import { Request, Response, Router } from "express";
 import bcrypt from "bcrypt";
 import prisma from "../lib/prisma";
 import { generateToken } from "../lib/jwt";
